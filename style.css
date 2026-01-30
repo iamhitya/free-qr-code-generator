@@ -218,7 +218,19 @@ body[data-bs-theme="dark"] {
     cursor: pointer;
     border-radius: 8px;
     border: 2px solid #334155 !important;
-    height: auto !important;
+    height: 50px !important;
+    padding: 4px !important;
+    width: 100%;
+}
+
+.form-control-color::-webkit-color-swatch {
+    border-radius: 6px;
+    border: none;
+}
+
+.form-control-color::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border: none;
 }
 
 .form-control-color:focus {
