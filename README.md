@@ -1,9 +1,5 @@
 # Free & Unlimited QR Code Generator
 
-[![Release v1.0.0](https://img.shields.io/badge/release-v1.0.0-blue.svg?style=for-the-badge)](https://github.com/iamhitya/free-qr-code-generator/releases/tag/v1.0.0)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![GitHub last commit](https://img.shields.io/github/last-commit/iamhitya/free-qr-code-generator?style=for-the-badge)](https://github.com/iamhitya/free-qr-code-generator/commits/master)
-
 A fast, powerful, and completely free QR code generator that respects your privacy. Create unlimited, permanent, and custom QR codes with logos. No ads, no registration, no data collection.
 
 **[➡️ Live Demo](https://iamhitya.github.io/free-qr-code-generator/)**
