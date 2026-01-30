@@ -528,7 +528,7 @@ body {
 .wallet .address {
     color: var(--color-text-muted);
     font-family: "Courier New", monospace;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     line-height: 1.4;
 }
 
@@ -724,7 +724,7 @@ body {
     }
 
     .address {
-        font-size: 0.75rem !important;
+        font-size: 0.65rem !important;
     }
 
     .btn-sm {
