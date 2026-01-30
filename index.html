@@ -56,7 +56,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <button class="nav-link btn btn-link" id="open-about-modal" aria-label="Open support and projects modal">
+                        <button class="nav-link btn btn-link" id="open-about-modal"
+                            aria-label="Open support and projects modal">
                             <i class="fas fa-heart me-2"></i>Support & Projects
                         </button>
                     </li>
@@ -92,7 +93,8 @@
                                     <i class="fas fa-expand me-2"></i>Size (px)
                                 </label>
                                 <div class="d-flex align-items-center gap-3">
-                                    <input type="range" id="qr-size" class="form-range" min="100" max="1000" value="300" step="10">
+                                    <input type="range" id="qr-size" class="form-range" min="100" max="1000" value="300"
+                                        step="10">
                                     <span id="qr-size-value" class="badge bg-primary">300px</span>
                                 </div>
                             </div>
@@ -103,13 +105,16 @@
                                     <label for="qr-color" class="form-label fw-semibold">
                                         <i class="fas fa-palette me-2"></i>QR Color
                                     </label>
-                                    <input type="color" id="qr-color" class="form-control form-control-color h-auto p-3" value="#000000" title="Choose QR code color">
+                                    <input type="color" id="qr-color" class="form-control form-control-color h-auto p-3"
+                                        value="#000000" title="Choose QR code color">
                                 </div>
                                 <div class="col-6">
                                     <label for="qr-bg-color" class="form-label fw-semibold">
                                         <i class="fas fa-fill-drip me-2"></i>Background
                                     </label>
-                                    <input type="color" id="qr-bg-color" class="form-control form-control-color h-auto p-3" value="#ffffff" title="Choose background color">
+                                    <input type="color" id="qr-bg-color"
+                                        class="form-control form-control-color h-auto p-3" value="#ffffff"
+                                        title="Choose background color">
                                 </div>
                             </div>
 
@@ -130,7 +135,8 @@
                                 <label for="logo-upload" class="form-label fw-semibold">
                                     <i class="fas fa-image me-2"></i>Add Logo <span class="text-muted">(optional)</span>
                                 </label>
-                                <input type="file" id="logo-upload" class="form-control form-control-lg" accept="image/png, image/jpeg, image/svg+xml">
+                                <input type="file" id="logo-upload" class="form-control form-control-lg"
+                                    accept="image/png, image/jpeg, image/svg+xml">
                                 <button id="remove-logo" class="btn btn-sm btn-outline-danger mt-2 hidden">
                                     <i class="fas fa-trash-alt me-2"></i>Remove Logo
                                 </button>
@@ -164,7 +170,8 @@
                 <!-- Preview Panel -->
                 <div class="col-lg-7">
                     <div class="preview-area card border-0 shadow-lg sticky-lg-top" style="top: 100px;">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-center p-5">
+                        <div
+                            class="card-body d-flex flex-column align-items-center justify-content-center p-5 preview-body">
                             <div id="qr-code-container" class="mb-4"></div>
                             <p class="text-muted fw-semibold">
                                 <i class="fas fa-eye me-2"></i>Live Preview
@@ -233,7 +240,8 @@
     <footer class="footer bg-dark text-center py-5 border-top">
         <div class="container-lg">
             <p class="mb-2">
-                Made by <a href="https://github.com/iamhitya" target="_blank" rel="noopener" class="text-primary text-decoration-none fw-semibold">
+                Made by <a href="https://github.com/iamhitya" target="_blank" rel="noopener"
+                    class="text-primary text-decoration-none fw-semibold">
                     Hiteshkumar
                 </a>
             </p>
@@ -251,7 +259,8 @@
                     <h5 class="modal-title" id="aboutModalLabel">
                         <i class="fas fa-heart me-2 text-danger"></i>Support This Project
                     </h5>
-                    <button id="close-about-modal" type="button" class="btn-close btn-close-white" aria-label="Close modal"></button>
+                    <button id="close-about-modal" type="button" class="btn-close btn-close-white"
+                        aria-label="Close modal"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Support Section -->
@@ -259,15 +268,18 @@
                         <h6 class="mb-3 fw-bold">
                             <i class="fas fa-hand-holding-heart me-2 text-danger"></i>Help Us Grow
                         </h6>
-                        <p>This QR code generator is 100% free, without ads, and respects your privacy. If you find it useful, please consider supporting its continued development.</p>
+                        <p>This QR code generator is 100% free, without ads, and respects your privacy. If you find it
+                            useful, please consider supporting its continued development.</p>
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
                                 <div class="card border-0 shadow-sm text-center p-3 wallet">
                                     <h6 class="mb-3">Solana (SOL)</h6>
                                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
                                         alt="Solana Donation QR Code" class="img-fluid mb-3 rounded">
-                                    <p class="address small text-break mb-3">2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW</p>
-                                    <button class="copy-btn btn btn-sm btn-outline-primary" data-address="2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
+                                    <p class="address small text-break mb-3">
+                                        2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW</p>
+                                    <button class="copy-btn btn btn-sm btn-outline-primary"
+                                        data-address="2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
                                         aria-label="Copy Solana address">
                                         <i class="fas fa-copy me-2"></i>Copy
                                     </button>
@@ -278,8 +290,10 @@
                                     <h6 class="mb-3">Bitcoin (BTC)</h6>
                                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
                                         alt="Bitcoin Donation QR Code" class="img-fluid mb-3 rounded">
-                                    <p class="address small text-break mb-3">bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf</p>
-                                    <button class="copy-btn btn btn-sm btn-outline-primary" data-address="bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
+                                    <p class="address small text-break mb-3">bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf
+                                    </p>
+                                    <button class="copy-btn btn btn-sm btn-outline-primary"
+                                        data-address="bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
                                         aria-label="Copy Bitcoin address">
                                         <i class="fas fa-copy me-2"></i>Copy
                                     </button>
@@ -291,7 +305,8 @@
                                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
                                         alt="Tron Donation QR Code" class="img-fluid mb-3 rounded">
                                     <p class="address small text-break mb-3">TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt</p>
-                                    <button class="copy-btn btn btn-sm btn-outline-primary" data-address="TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
+                                    <button class="copy-btn btn btn-sm btn-outline-primary"
+                                        data-address="TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
                                         aria-label="Copy Tron address">
                                         <i class="fas fa-copy me-2"></i>Copy
                                     </button>
@@ -302,8 +317,10 @@
                                     <h6 class="mb-3">Ethereum / BNB</h6>
                                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0xe680B718C69f2A99A060228411e51D9E19c988fa"
                                         alt="ETH/BNB Donation QR Code" class="img-fluid mb-3 rounded">
-                                    <p class="address small text-break mb-3">0xe680B718C69f2A99A060228411e51D9E19c988fa</p>
-                                    <button class="copy-btn btn btn-sm btn-outline-primary" data-address="0xe680B718C69f2A99A060228411e51D9E19c988fa"
+                                    <p class="address small text-break mb-3">0xe680B718C69f2A99A060228411e51D9E19c988fa
+                                    </p>
+                                    <button class="copy-btn btn btn-sm btn-outline-primary"
+                                        data-address="0xe680B718C69f2A99A060228411e51D9E19c988fa"
                                         aria-label="Copy Ethereum/BNB address">
                                         <i class="fas fa-copy me-2"></i>Copy
                                     </button>
@@ -319,7 +336,8 @@
                         </h6>
                         <div class="card border-0 shadow-sm p-4 project-card">
                             <h6 class="mb-2">More Tools Coming Soon</h6>
-                            <p class="text-muted small mb-0">We're working on more free and useful tools. Stay tuned!</p>
+                            <p class="text-muted small mb-0">We're working on more free and useful tools. Stay tuned!
+                            </p>
                         </div>
                     </section>
 

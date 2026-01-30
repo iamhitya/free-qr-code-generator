@@ -315,6 +315,11 @@ body[data-bs-theme="dark"] {
     background: linear-gradient(135deg, #1e293b 0%, #172554 100%);
 }
 
+.preview-body {
+    max-height: 600px;
+    overflow: auto;
+}
+
 #qr-code-container {
     background: #ffffff;
     padding: 1.5rem;
@@ -322,6 +327,12 @@ body[data-bs-theme="dark"] {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
     transition: var(--transition);
     animation: fadeIn 0.3s ease-in;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .preview-area:hover #qr-code-container {
