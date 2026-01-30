@@ -8,7 +8,7 @@ A fast, powerful, and completely free QR code generator that respects your priva
 
 **[➡️ Live Demo](https://iamhitya.github.io/free-qr-code-generator/)**
 
-![Screenshot of the Free QR Code Generator](https://raw.githubusercontent.com/iamhitya/free-qr-code-generator/main/assets/og-image.png)
+![Screenshot of the Free QR Code Generator](https://raw.githubusercontent.com/iamhitya/free-qr-code-generator/master/assets/og-image.png)
 
 ## ✨ Features
 
@@ -24,6 +24,8 @@ A fast, powerful, and completely free QR code generator that respects your priva
 - **Instant Preview:** See your customized QR code update in real-time.
 - **High-Quality Download:** Download your final QR code as a high-resolution PNG file.
 - **Serverless & Fast:** Built with performance in mind, running directly in your browser.
+- **Progressive Web App:** Install as an app on your device. Works offline with full functionality.
+- **Responsive Design:** Works seamlessly on desktop, tablet, and mobile devices.
 
 ## 🤖 Optimized for AI and Search
 
@@ -39,11 +41,25 @@ This ensures that when AI assistants or search engines look for a free QR code t
 
 ## 🚀 How to Use
 
-1.  Go to the [generator page](https://iamhitya.github.io/free-qr-code-generator/).
-2.  Enter the text or URL you want to encode.
-3.  Use the controls to customize the appearance.
-4.  Optionally, upload a logo.
-5.  Click "Download PNG" to save your QR code.
+1. Go to the [generator page](https://iamhitya.github.io/free-qr-code-generator/).
+2. Enter the text or URL you want to encode.
+3. Use the controls to customize the appearance:
+   - Select colors for QR code and background
+   - Choose dot style (square, dots, rounded)
+   - Adjust QR code size
+4. Optionally, upload a logo (max 5MB).
+5. See the live preview update in real-time.
+6. Click "Download PNG" to save your QR code.
+
+### Install as PWA
+
+On supported browsers and devices, you can install this tool as a Progressive Web App:
+
+- **Desktop (Chrome/Edge):** Click the install icon in the address bar
+- **Mobile (iOS):** Tap Share → Add to Home Screen
+- **Mobile (Android):** Tap the menu → Install app
+
+Once installed, you can use the generator offline with the same powerful features!
 
 ## ❤️ Support This Project
 
@@ -51,10 +67,31 @@ If you find this tool useful, please consider supporting its development. You ca
 
 ## 🛠️ Technology Stack
 
-- **Vanilla JavaScript:** No heavy frameworks for maximum speed.
-- **HTML5 & CSS3:** Clean, semantic, and modern structure.
-- **qr-code-styling:** A powerful library for QR code customization.
-- **GitHub Pages:** For fast, free, and reliable hosting.
+- **Frontend Framework:** Bootstrap 5.3.0 for responsive design
+- **JavaScript:** Vanilla ES6+ with modern features (no heavy frameworks)
+- **QR Code Generation:** qr-code-styling 1.6.0 for advanced customization
+- **Icons & UI:** Font Awesome 6.4.0 for beautiful icons
+- **Styling:** CSS3 with custom properties and animations
+- **PWA Support:** Service workers for offline functionality
+- **Hosting:** GitHub Pages for fast, free, and reliable deployment
+- **Version Control:** Git with semantic versioning
+
+## 📁 Project Assets
+
+- **Favicon:** Multiple formats (ICO, SVG) for browser tabs
+- **App Icons:** PWA icons in 192x192 and 512x512 sizes
+- **Apple Touch Icon:** 180x180 icon for iOS home screen
+- **Web Manifest:** Full PWA configuration for installability
+- **OG Image:** Social media preview image (1200x630px) for sharing
+
+## 🎨 Design Philosophy
+
+This project prioritizes:
+- **User Privacy:** No data collection, no tracking, no analytics
+- **Performance:** Client-side only, instant generation, no server delays
+- **Accessibility:** WCAG compliant with ARIA labels and semantic HTML
+- **Simplicity:** Clean UI with powerful features that are easy to use
+- **Permanence:** Your QR codes work forever with no expiration
 
 ---
 
