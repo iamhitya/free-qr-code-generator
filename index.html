@@ -44,13 +44,14 @@
 
 <body data-bs-theme="dark">
     <!-- Navigation Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient sticky-top shadow-sm" role="navigation"
+        aria-label="Main navigation">
         <div class="container-lg">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="fas fa-qrcode me-2"></i>Free QR Code Generator
+            <a class="navbar-brand fw-bold" href="#" aria-label="QR Code Generator home">
+                <i class="fas fa-qrcode me-2" aria-hidden="true"></i>Free QR Code Generator
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -58,7 +59,7 @@
                     <li class="nav-item">
                         <button class="nav-link btn btn-link" id="open-about-modal"
                             aria-label="Open support and projects modal">
-                            <i class="fas fa-heart me-2"></i>Support & Projects
+                            <i class="fas fa-heart me-2" aria-hidden="true"></i>Support & Projects
                         </button>
                     </li>
                 </ul>
@@ -81,21 +82,23 @@
                             <!-- Text/URL Input -->
                             <div class="control-group mb-4">
                                 <label for="qr-text" class="form-label fw-semibold">
-                                    <i class="fas fa-link me-2"></i>Text or URL
+                                    <i class="fas fa-link me-2" aria-hidden="true"></i>Text or URL
                                 </label>
                                 <textarea id="qr-text" class="form-control form-control-lg" rows="4"
-                                    placeholder="Enter text or URL here...">https://github.com/iamhitya</textarea>
+                                    placeholder="Enter text or URL here..."
+                                    aria-label="QR code content">https://github.com/iamhitya</textarea>
                             </div>
 
                             <!-- Size Control -->
                             <div class="control-group mb-4">
                                 <label for="qr-size" class="form-label fw-semibold">
-                                    <i class="fas fa-expand me-2"></i>Size (px)
+                                    <i class="fas fa-expand me-2" aria-hidden="true"></i>Size (px)
                                 </label>
                                 <div class="d-flex align-items-center gap-3">
                                     <input type="range" id="qr-size" class="form-range" min="100" max="1000" value="300"
-                                        step="10">
-                                    <span id="qr-size-value" class="badge bg-primary">300px</span>
+                                        step="10" aria-label="QR code size">
+                                    <span id="qr-size-value" class="badge bg-primary" aria-live="polite"
+                                        aria-atomic="true">300px</span>
                                 </div>
                             </div>
 
@@ -103,27 +106,28 @@
                             <div class="row g-3 mb-4">
                                 <div class="col-6">
                                     <label for="qr-color" class="form-label fw-semibold">
-                                        <i class="fas fa-palette me-2"></i>QR Color
+                                        <i class="fas fa-palette me-2" aria-hidden="true"></i>QR Color
                                     </label>
                                     <input type="color" id="qr-color" class="form-control form-control-color"
-                                        value="#000000" title="Choose QR code color">
+                                        value="#000000" title="Choose QR code color" aria-label="QR code color picker">
                                 </div>
                                 <div class="col-6">
                                     <label for="qr-bg-color" class="form-label fw-semibold">
-                                        <i class="fas fa-fill-drip me-2"></i>Background
+                                        <i class="fas fa-fill-drip me-2" aria-hidden="true"></i>Background
                                     </label>
-                                    <input type="color" id="qr-bg-color"
-                                        class="form-control form-control-color" value="#ffffff"
-                                        title="Choose background color">
+                                    <input type="color" id="qr-bg-color" class="form-control form-control-color"
+                                        value="#ffffff" title="Choose background color"
+                                        aria-label="Background color picker">
                                 </div>
                             </div>
 
                             <!-- Dot Style -->
                             <div class="control-group mb-4">
                                 <label for="dot-style" class="form-label fw-semibold">
-                                    <i class="fas fa-shapes me-2"></i>Dot Style
+                                    <i class="fas fa-shapes me-2" aria-hidden="true"></i>Dot Style
                                 </label>
-                                <select id="dot-style" class="form-select form-select-lg">
+                                <select id="dot-style" class="form-select form-select-lg"
+                                    aria-label="QR code dot style">
                                     <option value="square">Square</option>
                                     <option value="dots">Dots</option>
                                     <option value="rounded">Rounded</option>
@@ -133,21 +137,24 @@
                             <!-- Logo Upload -->
                             <div class="control-group mb-4">
                                 <label for="logo-upload" class="form-label fw-semibold">
-                                    <i class="fas fa-image me-2"></i>Add Logo <span class="text-muted">(optional)</span>
+                                    <i class="fas fa-image me-2" aria-hidden="true"></i>Add Logo <span
+                                        class="text-muted">(optional)</span>
                                 </label>
                                 <input type="file" id="logo-upload" class="form-control form-control-lg"
-                                    accept="image/png, image/jpeg, image/svg+xml">
-                                <button id="remove-logo" class="btn btn-sm btn-outline-danger mt-2 hidden">
-                                    <i class="fas fa-trash-alt me-2"></i>Remove Logo
+                                    accept="image/png, image/jpeg, image/svg+xml" aria-label="Logo image upload">
+                                <button id="remove-logo" class="btn btn-sm btn-outline-danger mt-2 hidden"
+                                    aria-label="Remove uploaded logo">
+                                    <i class="fas fa-trash-alt me-2" aria-hidden="true"></i>Remove Logo
                                 </button>
                             </div>
 
                             <!-- Download Format -->
                             <div class="control-group mb-4">
                                 <label for="download-format" class="form-label fw-semibold">
-                                    <i class="fas fa-file-export me-2"></i>Download Format
+                                    <i class="fas fa-file-export me-2" aria-hidden="true"></i>Download Format
                                 </label>
-                                <select id="download-format" class="form-select form-select-lg">
+                                <select id="download-format" class="form-select form-select-lg"
+                                    aria-label="QR code download format">
                                     <option value="png" selected>PNG</option>
                                     <option value="jpeg">JPEG</option>
                                     <option value="svg">SVG</option>
@@ -156,11 +163,13 @@
 
                             <!-- Action Buttons -->
                             <div class="d-grid gap-3">
-                                <button id="download-btn" class="btn btn-lg btn-primary btn-gradient">
-                                    <i class="fas fa-download me-2"></i>Download PNG
+                                <button id="download-btn" class="btn btn-lg btn-primary btn-gradient"
+                                    aria-label="Download QR code">
+                                    <i class="fas fa-download me-2" aria-hidden="true"></i>Download PNG
                                 </button>
-                                <button id="share-btn" class="btn btn-lg btn-outline-primary">
-                                    <i class="fas fa-share-alt me-2"></i>Share
+                                <button id="share-btn" class="btn btn-lg btn-outline-primary"
+                                    aria-label="Share QR code">
+                                    <i class="fas fa-share-alt me-2" aria-hidden="true"></i>Share
                                 </button>
                             </div>
                         </div>
@@ -169,12 +178,13 @@
 
                 <!-- Preview Panel -->
                 <div class="col-lg-7">
-                    <div class="preview-area card border-0 shadow-lg sticky-lg-top" style="top: 100px;">
+                    <div class="preview-area card border-0 shadow-lg sticky-lg-top" style="top: 100px;" role="region"
+                        aria-label="QR code live preview">
                         <div
                             class="card-body d-flex flex-column align-items-center justify-content-center p-5 preview-body">
-                            <div id="qr-code-container" class="mb-4"></div>
+                            <div id="qr-code-container" aria-label="Generated QR code"></div>
                             <p class="text-muted fw-semibold">
-                                <i class="fas fa-eye me-2"></i>Live Preview
+                                <i class="fas fa-eye me-2" aria-hidden="true"></i>Live Preview
                             </p>
                         </div>
                     </div>
