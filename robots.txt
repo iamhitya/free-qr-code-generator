@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iamhitya.github.io/free-qr-code-generator/sitemap.xml

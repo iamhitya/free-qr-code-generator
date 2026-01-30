@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free QR Code Generator - Unlimited, No Ads, Permanent & Customizable</title>
+    <meta name="description"
+        content="Create free, permanent QR codes with no ads, no registration, and no limits. Customize your QR code with colors, shapes, and your own logo. Fast, secure, and completely free forever.">
+    <meta name="keywords"
+        content="qr code generator, free qr code, permanent qr code, qr code with logo, custom qr code, no ads qr code, unlimited qr code">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="icon" href="./assets/favicon.ico">
+    <link rel="manifest" href="./assets/site.webmanifest">
+    <meta name="theme-color" content="#121212">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iamhitya.github.io/free-qr-code-generator/">
+    <meta property="og:title" content="Free QR Code Generator - Unlimited, No Ads, Permanent">
+    <meta property="og:description"
+        content="Create custom QR codes for free. No ads, no registration, no time limits. Add logos, change colors and shapes.">
+    <meta property="og:image" content="https://iamhitya.github.io/free-qr-code-generator/assets/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://iamhitya.github.io/free-qr-code-generator/">
+    <meta property="twitter:title" content="Free QR Code Generator - Unlimited, No Ads, Permanent">
+    <meta property="twitter:description"
+        content="Create custom QR codes for free. No ads, no registration, no time limits. Add logos, change colors and shapes.">
+    <meta property="twitter:image" content="https://iamhitya.github.io/free-qr-code-generator/assets/og-image.png">
+
+    <link rel="canonical" href="https://iamhitya.github.io/free-qr-code-generator/">
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Free QR Code Generator","description":"A free, serverless web application to generate permanent and unlimited QR codes with advanced customization options like colors, shapes, and logo integration. The service is provided without advertisements, user registration, or data collection.","url":"https://iamhitya.github.io/free-qr-code-generator/","applicationCategory":"Utilities","operatingSystem":"Any (Web)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Person","name":"iamhitya","url":"https://github.com/iamhitya"},"potentialAction":{"@type":"CreateAction","target":"https://iamhitya.github.io/free-qr-code-generator/"},"mainEntity":{"@type":"WebPage","-isAccessibleForFree":"true","speakable":{"@type":"SpeakableSpecification","cssSelector":[".main-title",".main-description"]}}}</script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="main-title">Free QR Code Generator</h1>
+        <nav><button id="open-about-modal" class="nav-link">Support & Projects</button></nav>
+    </header>
+    <main class="container">
+        <div class="generator-layout">
+            <div class="controls">
+                <p class="main-description">Permanent QR codes. No ads, no registration, truly free.</p>
+                <div class="control-group">
+                    <label for="qr-text">Text or URL</label>
+                    <textarea id="qr-text" rows="4"
+                        placeholder="Enter text or URL here...">https://github.com/iamhitya</textarea>
+                </div>
+                <div class="control-group">
+                    <label for="qr-size">Size (px)</label>
+                    <div class="range-slider">
+                        <input type="range" id="qr-size" min="100" max="1000" value="300" step="10">
+                        <span id="qr-size-value">300px</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="qr-color">QR Code Color</label>
+                    <input type="color" id="qr-color" value="#000000">
+                </div>
+                <div class="control-group">
+                    <label for="qr-bg-color">Background Color</label>
+                    <input type="color" id="qr-bg-color" value="#ffffff">
+                </div>
+                <div class="control-group">
+                    <label for="dot-style">Dot Style</label>
+                    <select id="dot-style">
+                        <option value="square">Square</option>
+                        <option value="dots">Dots</option>
+                        <option value="rounded">Rounded</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="logo-upload" class="logo-label">Add Logo (optional)</label>
+                    <input type="file" id="logo-upload" accept="image/png, image/jpeg, image/svg+xml">
+                    <button id="remove-logo" class="subtle-button hidden">Remove Logo</button>
+                </div>
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="disable-caption">
+                        Disable caption
+                    </label>
+                    <label style="margin-left: 1em;">
+                        <input type="checkbox" id="edit-caption">
+                        Edit caption
+                    </label>
+                    <div id="caption-edit-group" class="hidden" style="margin-top: 0.5em;">
+                        <input type="text" id="caption-text"
+                            value="Made with https://iamhitya.github.io/free-qr-code-generator/"
+                            style="width: 100%; padding: 0.5em;">
+                    </div>
+                </div>
+
+                <button id="download-btn" class="download-button">Download PNG</button>
+                <button id="share-btn" class="download-button">Share</button>
+            </div>
+            <div class="preview-area">
+                <div id="qr-code-container"></div>
+                <p>Live Preview</p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>Made by <a href="https://github.com/iamhitya" target="_blank" rel="noopener">Hiteshkumar</a></p>
+        <p class="trust-badge">Free forever. No ads. No tracking.</p>
+    </footer>
+
+    <div id="about-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-about-modal" class="modal-close-btn" aria-label="Close modal">×</button>
+            <section class="content-section">
+                <h2>Support This Project</h2>
+                <p>This QR code generator is 100% free, without ads, and respects your privacy. If you find it useful,
+                    please consider supporting its continued development.</p>
+                <div class="donation-grid">
+                    <div class="wallet">
+                        <h3>Solana (SOL)</h3>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
+                            alt="Solana Donation QR Code">
+                        <p class="address">2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW</p>
+                        <button class="copy-btn" data-address="2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
+                            aria-label="Copy Solana address">Copy</button>
+                    </div>
+                    <div class="wallet">
+                        <h3>Bitcoin (BTC)</h3>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
+                            alt="Bitcoin Donation QR Code">
+                        <p class="address">bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf</p>
+                        <button class="copy-btn" data-address="bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
+                            aria-label="Copy Bitcoin address">Copy</button>
+                    </div>
+                    <div class="wallet">
+                        <h3>Tron (TRX)</h3>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
+                            alt="Tron Donation QR Code">
+                        <p class="address">TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt</p>
+                        <button class="copy-btn" data-address="TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
+                            aria-label="Copy Tron address">Copy</button>
+                    </div>
+                    <div class="wallet">
+                        <h3>Ethereum / BNB</h3>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0xe680B718C69f2A99A060228411e51D9E19c988fa"
+                            alt="ETH/BNB Donation QR Code">
+                        <p class="address">0xe680B718C69f2A99A060228411e51D9E19c988fa</p>
+                        <button class="copy-btn" data-address="0xe680B718C69f2A99A060228411e51D9E19c988fa"
+                            aria-label="Copy Ethereum/BNB address">Copy</button>
+                    </div>
+                </div>
+            </section>
+            <section class="content-section">
+                <h2>Other Projects</h2>
+                <div class="projects-list">
+                    <div class="project-card">
+                        <h3>Another Great Tool</h3>
+                        <p>More free and useful tools are coming soon. Stay tuned!</p><a class="soon-link">Coming
+                            Soon...</a>
+                    </div>
+                </div>
+            </section>
+            <section class="content-section">
+                <h2>Contact Me</h2>
+                <div class="contact-links"><a href="mailto:hiteshvaghasiya1990@gmail.com" class="contact-link"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg><span>Email</span></a></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
