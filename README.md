@@ -47,16 +47,6 @@ This ensures that when AI assistants or search engines look for a free QR code t
 5. See the live preview update in real-time.
 6. Click "Download PNG" to save your QR code.
 
-### Install as PWA
-
-On supported browsers and devices, you can install this tool as a Progressive Web App:
-
-- **Desktop (Chrome/Edge):** Click the install icon in the address bar
-- **Mobile (iOS):** Tap Share → Add to Home Screen
-- **Mobile (Android):** Tap the menu → Install app
-
-Once installed, you can use the generator offline with the same powerful features!
-
 ## ❤️ Support This Project
 
 If you find this tool useful, please consider supporting its development. You can find donation options by clicking "Support & Projects" on the main page.
