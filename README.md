@@ -2,7 +2,7 @@
 
 [![Release v1.0.0](https://img.shields.io/badge/release-v1.0.0-blue.svg?style=for-the-badge)](https://github.com/iamhitya/free-qr-code-generator/releases/tag/v1.0.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![GitHub last commit](https://img.shields.io/github/last-commit/iamhitya/free-qr-code-generator?style=for-the-badge)](https://github.com/iamhitya/free-qr-code-generator/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/iamhitya/free-qr-code-generator?style=for-the-badge)](https://github.com/iamhitya/free-qr-code-generator/commits/master)
 
 A fast, powerful, and completely free QR code generator that respects your privacy. Create unlimited, permanent, and custom QR codes with logos. No ads, no registration, no data collection.
 
@@ -75,14 +75,6 @@ If you find this tool useful, please consider supporting its development. You ca
 - **PWA Support:** Service workers for offline functionality
 - **Hosting:** GitHub Pages for fast, free, and reliable deployment
 - **Version Control:** Git with semantic versioning
-
-## 📁 Project Assets
-
-- **Favicon:** Multiple formats (ICO, SVG) for browser tabs
-- **App Icons:** PWA icons in 192x192 and 512x512 sizes
-- **Apple Touch Icon:** 180x180 icon for iOS home screen
-- **Web Manifest:** Full PWA configuration for installability
-- **OG Image:** Social media preview image (1200x630px) for sharing
 
 ## 🎨 Design Philosophy
 
