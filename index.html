@@ -34,156 +34,314 @@
     <script
         type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Free QR Code Generator","description":"A free, serverless web application to generate permanent and unlimited QR codes with advanced customization options like colors, shapes, and logo integration. The service is provided without advertisements, user registration, or data collection.","url":"https://iamhitya.github.io/free-qr-code-generator/","applicationCategory":"Utilities","operatingSystem":"Any (Web)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Person","name":"iamhitya","url":"https://github.com/iamhitya"},"potentialAction":{"@type":"CreateAction","target":"https://iamhitya.github.io/free-qr-code-generator/"},"mainEntity":{"@type":"WebPage","-isAccessibleForFree":"true","speakable":{"@type":"SpeakableSpecification","cssSelector":[".main-title",".main-description"]}}}</script>
 
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <header class="header">
-        <h1 class="main-title">Free QR Code Generator</h1>
-        <nav><button id="open-about-modal" class="nav-link">Support & Projects</button></nav>
-    </header>
-    <main class="container">
-        <div class="generator-layout">
-            <div class="controls">
-                <p class="main-description">Permanent QR codes. No ads, no registration, truly free.</p>
-                <div class="control-group">
-                    <label for="qr-text">Text or URL</label>
-                    <textarea id="qr-text" rows="4"
-                        placeholder="Enter text or URL here...">https://github.com/iamhitya</textarea>
-                </div>
-                <div class="control-group">
-                    <label for="qr-size">Size (px)</label>
-                    <div class="range-slider">
-                        <input type="range" id="qr-size" min="100" max="1000" value="300" step="10">
-                        <span id="qr-size-value">300px</span>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label for="qr-color">QR Code Color</label>
-                    <input type="color" id="qr-color" value="#000000">
-                </div>
-                <div class="control-group">
-                    <label for="qr-bg-color">Background Color</label>
-                    <input type="color" id="qr-bg-color" value="#ffffff">
-                </div>
-                <div class="control-group">
-                    <label for="dot-style">Dot Style</label>
-                    <select id="dot-style">
-                        <option value="square">Square</option>
-                        <option value="dots">Dots</option>
-                        <option value="rounded">Rounded</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label for="logo-upload" class="logo-label">Add Logo (optional)</label>
-                    <input type="file" id="logo-upload" accept="image/png, image/jpeg, image/svg+xml">
-                    <button id="remove-logo" class="subtle-button hidden">Remove Logo</button>
-                </div>
-                <div class="control-group">
-                    <label>
-                        <input type="checkbox" id="disable-caption">
-                        Disable caption
-                    </label>
-                    <label style="margin-left: 1em;">
-                        <input type="checkbox" id="edit-caption">
-                        Edit caption
-                    </label>
-                    <div id="caption-edit-group" class="hidden" style="margin-top: 0.5em;">
-                        <input type="text" id="caption-text"
-                            value="Made with https://iamhitya.github.io/free-qr-code-generator/"
-                            style="width: 100%; padding: 0.5em;">
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label for="download-format">Download Format</label>
-                    <select id="download-format">
-                        <option value="png" selected>PNG</option>
-                        <option value="jpeg">JPEG</option>
-                        <option value="svg">SVG</option>
-                    </select>
-                </div>
-
-                <button id="download-btn" class="download-button">Download PNG</button>
-                <button id="share-btn" class="download-button">Share</button>
+<body data-bs-theme="dark">
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient sticky-top shadow-sm">
+        <div class="container-lg">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-qrcode me-2"></i>Free QR Code Generator
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" id="open-about-modal" aria-label="Open support and projects modal">
+                            <i class="fas fa-heart me-2"></i>Support & Projects
+                        </button>
+                    </li>
+                </ul>
             </div>
-            <div class="preview-area">
-                <div id="qr-code-container"></div>
-                <p>Live Preview</p>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content py-5">
+        <div class="container-lg">
+            <div class="row g-4">
+                <!-- Controls Panel -->
+                <div class="col-lg-5">
+                    <div class="controls card border-0 shadow-lg">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-4">
+                                <i class="fas fa-sliders-h me-2"></i>Customize Your QR Code
+                            </h5>
+
+                            <!-- Text/URL Input -->
+                            <div class="control-group mb-4">
+                                <label for="qr-text" class="form-label fw-semibold">
+                                    <i class="fas fa-link me-2"></i>Text or URL
+                                </label>
+                                <textarea id="qr-text" class="form-control form-control-lg" rows="4"
+                                    placeholder="Enter text or URL here...">https://github.com/iamhitya</textarea>
+                            </div>
+
+                            <!-- Size Control -->
+                            <div class="control-group mb-4">
+                                <label for="qr-size" class="form-label fw-semibold">
+                                    <i class="fas fa-expand me-2"></i>Size (px)
+                                </label>
+                                <div class="d-flex align-items-center gap-3">
+                                    <input type="range" id="qr-size" class="form-range" min="100" max="1000" value="300" step="10">
+                                    <span id="qr-size-value" class="badge bg-primary">300px</span>
+                                </div>
+                            </div>
+
+                            <!-- Color Controls -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <label for="qr-color" class="form-label fw-semibold">
+                                        <i class="fas fa-palette me-2"></i>QR Color
+                                    </label>
+                                    <input type="color" id="qr-color" class="form-control form-control-color h-auto p-3" value="#000000" title="Choose QR code color">
+                                </div>
+                                <div class="col-6">
+                                    <label for="qr-bg-color" class="form-label fw-semibold">
+                                        <i class="fas fa-fill-drip me-2"></i>Background
+                                    </label>
+                                    <input type="color" id="qr-bg-color" class="form-control form-control-color h-auto p-3" value="#ffffff" title="Choose background color">
+                                </div>
+                            </div>
+
+                            <!-- Dot Style -->
+                            <div class="control-group mb-4">
+                                <label for="dot-style" class="form-label fw-semibold">
+                                    <i class="fas fa-shapes me-2"></i>Dot Style
+                                </label>
+                                <select id="dot-style" class="form-select form-select-lg">
+                                    <option value="square">Square</option>
+                                    <option value="dots">Dots</option>
+                                    <option value="rounded">Rounded</option>
+                                </select>
+                            </div>
+
+                            <!-- Logo Upload -->
+                            <div class="control-group mb-4">
+                                <label for="logo-upload" class="form-label fw-semibold">
+                                    <i class="fas fa-image me-2"></i>Add Logo <span class="text-muted">(optional)</span>
+                                </label>
+                                <input type="file" id="logo-upload" class="form-control form-control-lg" accept="image/png, image/jpeg, image/svg+xml">
+                                <button id="remove-logo" class="btn btn-sm btn-outline-danger mt-2 hidden">
+                                    <i class="fas fa-trash-alt me-2"></i>Remove Logo
+                                </button>
+                            </div>
+
+                            <!-- Download Format -->
+                            <div class="control-group mb-4">
+                                <label for="download-format" class="form-label fw-semibold">
+                                    <i class="fas fa-file-export me-2"></i>Download Format
+                                </label>
+                                <select id="download-format" class="form-select form-select-lg">
+                                    <option value="png" selected>PNG</option>
+                                    <option value="jpeg">JPEG</option>
+                                    <option value="svg">SVG</option>
+                                </select>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="d-grid gap-3">
+                                <button id="download-btn" class="btn btn-lg btn-primary btn-gradient">
+                                    <i class="fas fa-download me-2"></i>Download PNG
+                                </button>
+                                <button id="share-btn" class="btn btn-lg btn-outline-primary">
+                                    <i class="fas fa-share-alt me-2"></i>Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview Panel -->
+                <div class="col-lg-7">
+                    <div class="preview-area card border-0 shadow-lg sticky-lg-top" style="top: 100px;">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center p-5">
+                            <div id="qr-code-container" class="mb-4"></div>
+                            <p class="text-muted fw-semibold">
+                                <i class="fas fa-eye me-2"></i>Live Preview
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
-    <footer class="footer">
-        <p>Made by <a href="https://github.com/iamhitya" target="_blank" rel="noopener">Hiteshkumar</a></p>
-        <p class="trust-badge">Free forever. No ads. No tracking.</p>
+
+    <!-- Features Section -->
+    <section class="features-section py-5 bg-light">
+        <div class="container-lg">
+            <h2 class="text-center mb-5 fw-bold">
+                <i class="fas fa-star me-2 text-warning"></i>Why Choose Our Generator?
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card border-0 text-center p-4 h-100 shadow-sm hover-lift">
+                        <i class="fas fa-infinity text-primary fs-1 mb-3"></i>
+                        <h5 class="card-title">Unlimited & Permanent</h5>
+                        <p class="card-text text-muted">Create as many QR codes as you need. They never expire.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card border-0 text-center p-4 h-100 shadow-sm hover-lift">
+                        <i class="fas fa-ban text-danger fs-1 mb-3"></i>
+                        <h5 class="card-title">No Ads & No Tracking</h5>
+                        <p class="card-text text-muted">Enjoy a clean experience. We don't track or sell your data.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card border-0 text-center p-4 h-100 shadow-sm hover-lift">
+                        <i class="fas fa-paint-brush text-success fs-1 mb-3"></i>
+                        <h5 class="card-title">Fully Customizable</h5>
+                        <p class="card-text text-muted">Change colors, add logos, select dot styles & more.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card border-0 text-center p-4 h-100 shadow-sm hover-lift">
+                        <i class="fas fa-lock text-info fs-1 mb-3"></i>
+                        <h5 class="card-title">100% Secure</h5>
+                        <p class="card-text text-muted">Everything runs in your browser. No data stored.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card border-0 text-center p-4 h-100 shadow-sm hover-lift">
+                        <i class="fas fa-mobile-alt text-success fs-1 mb-3"></i>
+                        <h5 class="card-title">Mobile Friendly</h5>
+                        <p class="card-text text-muted">Works perfectly on all devices and browsers.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card card border-0 text-center p-4 h-100 shadow-sm hover-lift">
+                        <i class="fas fa-rocket text-warning fs-1 mb-3"></i>
+                        <h5 class="card-title">Lightning Fast</h5>
+                        <p class="card-text text-muted">Instant generation with zero server delays.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-center py-5 border-top">
+        <div class="container-lg">
+            <p class="mb-2">
+                Made by <a href="https://github.com/iamhitya" target="_blank" rel="noopener" class="text-primary text-decoration-none fw-semibold">
+                    Hiteshkumar
+                </a>
+            </p>
+            <p class="text-muted small">
+                <i class="fas fa-heart text-danger me-2"></i>Free forever. No ads. No tracking.
+            </p>
+        </div>
     </footer>
 
-    <div id="about-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button id="close-about-modal" class="modal-close-btn" aria-label="Close modal">×</button>
-            <section class="content-section">
-                <h2>Support This Project</h2>
-                <p>This QR code generator is 100% free, without ads, and respects your privacy. If you find it useful,
-                    please consider supporting its continued development.</p>
-                <div class="donation-grid">
-                    <div class="wallet">
-                        <h3>Solana (SOL)</h3>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
-                            alt="Solana Donation QR Code">
-                        <p class="address">2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW</p>
-                        <button class="copy-btn" data-address="2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
-                            aria-label="Copy Solana address">Copy</button>
-                    </div>
-                    <div class="wallet">
-                        <h3>Bitcoin (BTC)</h3>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
-                            alt="Bitcoin Donation QR Code">
-                        <p class="address">bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf</p>
-                        <button class="copy-btn" data-address="bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
-                            aria-label="Copy Bitcoin address">Copy</button>
-                    </div>
-                    <div class="wallet">
-                        <h3>Tron (TRX)</h3>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
-                            alt="Tron Donation QR Code">
-                        <p class="address">TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt</p>
-                        <button class="copy-btn" data-address="TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
-                            aria-label="Copy Tron address">Copy</button>
-                    </div>
-                    <div class="wallet">
-                        <h3>Ethereum / BNB</h3>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0xe680B718C69f2A99A060228411e51D9E19c988fa"
-                            alt="ETH/BNB Donation QR Code">
-                        <p class="address">0xe680B718C69f2A99A060228411e51D9E19c988fa</p>
-                        <button class="copy-btn" data-address="0xe680B718C69f2A99A060228411e51D9E19c988fa"
-                            aria-label="Copy Ethereum/BNB address">Copy</button>
-                    </div>
+    <!-- Modal -->
+    <div id="about-modal" class="modal fade" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content border-0">
+                <div class="modal-header bg-gradient">
+                    <h5 class="modal-title" id="aboutModalLabel">
+                        <i class="fas fa-heart me-2 text-danger"></i>Support This Project
+                    </h5>
+                    <button id="close-about-modal" type="button" class="btn-close btn-close-white" aria-label="Close modal"></button>
                 </div>
-            </section>
-            <section class="content-section">
-                <h2>Other Projects</h2>
-                <div class="projects-list">
-                    <div class="project-card">
-                        <h3>Another Great Tool</h3>
-                        <p>More free and useful tools are coming soon. Stay tuned!</p><a class="soon-link">Coming
-                            Soon...</a>
-                    </div>
+                <div class="modal-body">
+                    <!-- Support Section -->
+                    <section class="mb-5">
+                        <h6 class="mb-3 fw-bold">
+                            <i class="fas fa-hand-holding-heart me-2 text-danger"></i>Help Us Grow
+                        </h6>
+                        <p>This QR code generator is 100% free, without ads, and respects your privacy. If you find it useful, please consider supporting its continued development.</p>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm text-center p-3 wallet">
+                                    <h6 class="mb-3">Solana (SOL)</h6>
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
+                                        alt="Solana Donation QR Code" class="img-fluid mb-3 rounded">
+                                    <p class="address small text-break mb-3">2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW</p>
+                                    <button class="copy-btn btn btn-sm btn-outline-primary" data-address="2ZSidD1LRn6gmvf55vQ3Ag5j1pjd9PopKyyC3vNLG6sW"
+                                        aria-label="Copy Solana address">
+                                        <i class="fas fa-copy me-2"></i>Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm text-center p-3 wallet">
+                                    <h6 class="mb-3">Bitcoin (BTC)</h6>
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
+                                        alt="Bitcoin Donation QR Code" class="img-fluid mb-3 rounded">
+                                    <p class="address small text-break mb-3">bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf</p>
+                                    <button class="copy-btn btn btn-sm btn-outline-primary" data-address="bc1q9c4edhwyevfr982a3pa9n9333qfkhe840ragdf"
+                                        aria-label="Copy Bitcoin address">
+                                        <i class="fas fa-copy me-2"></i>Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm text-center p-3 wallet">
+                                    <h6 class="mb-3">Tron (TRX)</h6>
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
+                                        alt="Tron Donation QR Code" class="img-fluid mb-3 rounded">
+                                    <p class="address small text-break mb-3">TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt</p>
+                                    <button class="copy-btn btn btn-sm btn-outline-primary" data-address="TMRNyR8bAvrku4ZqEon2JrSFV1yiC4RNmt"
+                                        aria-label="Copy Tron address">
+                                        <i class="fas fa-copy me-2"></i>Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm text-center p-3 wallet">
+                                    <h6 class="mb-3">Ethereum / BNB</h6>
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0xe680B718C69f2A99A060228411e51D9E19c988fa"
+                                        alt="ETH/BNB Donation QR Code" class="img-fluid mb-3 rounded">
+                                    <p class="address small text-break mb-3">0xe680B718C69f2A99A060228411e51D9E19c988fa</p>
+                                    <button class="copy-btn btn btn-sm btn-outline-primary" data-address="0xe680B718C69f2A99A060228411e51D9E19c988fa"
+                                        aria-label="Copy Ethereum/BNB address">
+                                        <i class="fas fa-copy me-2"></i>Copy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Projects Section -->
+                    <section class="mb-5">
+                        <h6 class="mb-3 fw-bold">
+                            <i class="fas fa-project-diagram me-2 text-info"></i>Other Projects
+                        </h6>
+                        <div class="card border-0 shadow-sm p-4 project-card">
+                            <h6 class="mb-2">More Tools Coming Soon</h6>
+                            <p class="text-muted small mb-0">We're working on more free and useful tools. Stay tuned!</p>
+                        </div>
+                    </section>
+
+                    <!-- Contact Section -->
+                    <section>
+                        <h6 class="mb-3 fw-bold">
+                            <i class="fas fa-envelope me-2 text-success"></i>Contact
+                        </h6>
+                        <a href="mailto:hiteshvaghasiya1990@gmail.com" class="btn btn-outline-success w-100">
+                            <i class="fas fa-envelope me-2"></i>Send Email
+                        </a>
+                    </section>
                 </div>
-            </section>
-            <section class="content-section">
-                <h2>Contact Me</h2>
-                <div class="contact-links"><a href="mailto:hiteshvaghasiya1990@gmail.com" class="contact-link"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                            </path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg><span>Email</span></a></div>
-            </section>
+            </div>
         </div>
     </div>
 
+    <!-- QR Code Library -->
     <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 

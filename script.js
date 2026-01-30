@@ -26,11 +26,6 @@ const ELEMENTS = {
     downloadBtn: null,
     downloadFormat: null,
     shareBtn: null,
-    // Caption controls
-    disableCaption: null,
-    editCaption: null,
-    captionEditGroup: null,
-    captionText: null,
     // Modal elements
     aboutModal: null,
     openAboutModal: null,
@@ -56,10 +51,6 @@ function initializeElements() {
     ELEMENTS.downloadBtn = document.getElementById("download-btn");
     ELEMENTS.downloadFormat = document.getElementById("download-format");
     ELEMENTS.shareBtn = document.getElementById("share-btn");
-    ELEMENTS.disableCaption = document.getElementById("disable-caption");
-    ELEMENTS.editCaption = document.getElementById("edit-caption");
-    ELEMENTS.captionEditGroup = document.getElementById("caption-edit-group");
-    ELEMENTS.captionText = document.getElementById("caption-text");
     ELEMENTS.aboutModal = document.getElementById("about-modal");
     ELEMENTS.openAboutModal = document.getElementById("open-about-modal");
     ELEMENTS.closeAboutModal = document.getElementById("close-about-modal");
@@ -224,65 +215,39 @@ async function handleShare() {
 }
 
 /**
- * Handle caption disable checkbox
- */
-function handleCaptionDisable() {
-    const isDisabled = ELEMENTS.disableCaption.checked;
-    
-    if (isDisabled) {
-        ELEMENTS.editCaption.checked = false;
-        ELEMENTS.captionEditGroup.classList.add("hidden");
-    }
-}
-
-/**
- * Handle caption edit checkbox
- */
-function handleCaptionEdit() {
-    const isEditing = ELEMENTS.editCaption.checked;
-    
-    if (isEditing) {
-        ELEMENTS.disableCaption.checked = false;
-        ELEMENTS.captionEditGroup.classList.remove("hidden");
-    } else {
-        ELEMENTS.captionEditGroup.classList.add("hidden");
-    }
-}
-
-/**
- * Show the about modal
+ * Show the about modal using Bootstrap
  */
 function showModal() {
-    document.body.classList.add("modal-open");
-    ELEMENTS.aboutModal.classList.add("visible");
+    const modal = new bootstrap.Modal(ELEMENTS.aboutModal);
+    modal.show();
 }
 
 /**
- * Hide the about modal
+ * Hide the about modal using Bootstrap
  */
 function hideModal() {
-    document.body.classList.remove("modal-open");
-    ELEMENTS.aboutModal.classList.remove("visible");
+    const modal = bootstrap.Modal.getInstance(ELEMENTS.aboutModal);
+    if (modal) {
+        modal.hide();
+    }
 }
 
 /**
- * Handle modal overlay click (close on backdrop click)
+ * Handle modal overlay click (handled by Bootstrap)
  * @param {Event} event - Click event
  */
 function handleModalOverlayClick(event) {
-    if (event.target === ELEMENTS.aboutModal) {
-        hideModal();
-    }
+    // Bootstrap handles this automatically
+    // This function is kept for compatibility
 }
 
 /**
- * Handle escape key to close modal
+ * Handle escape key to close modal (handled by Bootstrap)
  * @param {KeyboardEvent} event - Keyboard event
  */
 function handleEscapeKey(event) {
-    if (event.key === "Escape" && ELEMENTS.aboutModal.classList.contains("visible")) {
-        hideModal();
-    }
+    // Bootstrap handles this automatically with data-bs-dismiss
+    // This function is kept for compatibility
 }
 
 /**
@@ -324,10 +289,6 @@ function initializeEventListeners() {
     ELEMENTS.downloadFormat.addEventListener("change", updateDownloadButtonText);
     ELEMENTS.downloadBtn.addEventListener("click", handleDownload);
     ELEMENTS.shareBtn.addEventListener("click", handleShare);
-    
-    // Caption events
-    ELEMENTS.disableCaption.addEventListener("change", handleCaptionDisable);
-    ELEMENTS.editCaption.addEventListener("change", handleCaptionEdit);
     
     // Modal events
     ELEMENTS.openAboutModal.addEventListener("click", showModal);
