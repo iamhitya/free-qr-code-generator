@@ -8,7 +8,7 @@
 // ==========================================
 const CONFIG = {
     DEFAULT_SIZE: 300,
-    DEFAULT_URL: "https://github.com/iamhitya",
+    DEFAULT_URL: "https://www.linkedin.com/in/iamhitya/",
     RENDER_DELAY: 400,
     COPY_FEEDBACK_DURATION: 2000,
     QR_IMAGE_MARGIN: 10,
