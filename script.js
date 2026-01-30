@@ -24,6 +24,7 @@ const ELEMENTS = {
     logoUpload: null,
     removeLogo: null,
     downloadBtn: null,
+    downloadFormat: null,
     shareBtn: null,
     // Caption controls
     disableCaption: null,
@@ -53,6 +54,7 @@ function initializeElements() {
     ELEMENTS.logoUpload = document.getElementById("logo-upload");
     ELEMENTS.removeLogo = document.getElementById("remove-logo");
     ELEMENTS.downloadBtn = document.getElementById("download-btn");
+    ELEMENTS.downloadFormat = document.getElementById("download-format");
     ELEMENTS.shareBtn = document.getElementById("share-btn");
     ELEMENTS.disableCaption = document.getElementById("disable-caption");
     ELEMENTS.editCaption = document.getElementById("edit-caption");
@@ -149,13 +151,22 @@ function handleLogoRemoval() {
 }
 
 /**
- * Download the QR code as PNG
+ * Download the QR code in the selected format
  */
 function handleDownload() {
+    const format = ELEMENTS.downloadFormat.value;
     qrCode.download({ 
         name: "qrcode", 
-        extension: "png" 
+        extension: format 
     });
+}
+
+/**
+ * Update download button text based on selected format
+ */
+function updateDownloadButtonText() {
+    const format = ELEMENTS.downloadFormat.value.toUpperCase();
+    ELEMENTS.downloadBtn.textContent = `Download ${format}`;
 }
 
 /**
@@ -310,6 +321,7 @@ function initializeEventListeners() {
     ELEMENTS.removeLogo.addEventListener("click", handleLogoRemoval);
     
     // Download and share events
+    ELEMENTS.downloadFormat.addEventListener("change", updateDownloadButtonText);
     ELEMENTS.downloadBtn.addEventListener("click", handleDownload);
     ELEMENTS.shareBtn.addEventListener("click", handleShare);
     
