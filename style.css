@@ -357,6 +357,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform-origin: center bottom;
+    will-change: transform;
 }
 
 .preview-area:hover #qr-code-container {
